@@ -3,7 +3,30 @@ import { PROFILE, PROJECT_TABS } from '../data';
 
 export default function Sidebar({ counts, activeTab, setActiveTab }) {
   const { t, i18n } = useTranslation();
-  const hasSidebarLinks = PROFILE.socialLinks.length > 0 || Boolean(PROFILE.resumeHref);
+  const sidebarLinks = [
+    {
+      key: 'linkedin',
+      href: PROFILE.quickLinks?.linkedin,
+      label: 'LinkedIn',
+      iconClass: 'fa-brands fa-linkedin-in',
+      variant: 'square'
+    },
+    {
+      key: 'github',
+      href: PROFILE.quickLinks?.github,
+      label: 'GitHub',
+      iconClass: 'fa-brands fa-github',
+      variant: 'square'
+    },
+    {
+      key: 'cv',
+      href: PROFILE.quickLinks?.cv,
+      label: t('sidebar.cv_button'),
+      iconClass: 'fa-solid fa-file-pdf',
+      variant: 'wide'
+    }
+  ].filter((link) => Boolean(link.href));
+  const hasSidebarLinks = sidebarLinks.length > 0;
 
   return (
     <aside className="sidebar">
@@ -51,23 +74,24 @@ export default function Sidebar({ counts, activeTab, setActiveTab }) {
 
       {hasSidebarLinks && (
         <div className="sidebar-socials">
-          {PROFILE.socialLinks.map((link) => (
+          {sidebarLinks.map((link) => (
             <a
-              key={link.href}
+              key={link.key}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
+              title={link.label}
+              className={`sidebar-link ${link.variant}`}
             >
-              <i className={link.iconClass}></i>
+              <i className={link.iconClass} aria-hidden="true"></i>
+              {link.variant === 'wide' ? (
+                <span className="sidebar-link-label">{link.label}</span>
+              ) : (
+                <span className="sr-only">{link.label}</span>
+              )}
             </a>
           ))}
-          {PROFILE.resumeHref && (
-            <a href={PROFILE.resumeHref} target="_blank" rel="noopener noreferrer" className="cv-button">
-              <i className="fa-solid fa-file-pdf"></i>
-              <span>{t('sidebar.cv_button')}</span>
-            </a>
-          )}
         </div>
       )}
     </aside>

@@ -7,7 +7,7 @@ export default {
     projects_count: 'Proyek',
     concepts_count: 'Konsep',
     events_count: 'Event',
-    cv_button: 'Resume'
+    cv_button: 'CV'
   },
   topbar: {
     last_updated: 'Update',

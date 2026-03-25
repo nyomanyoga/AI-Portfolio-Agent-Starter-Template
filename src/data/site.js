@@ -12,9 +12,12 @@ export const CHATBOT_TEMPLATE = Object.freeze({
 export const PROFILE = Object.freeze({
   name: 'Your Name',
   avatar: '/avatar-template.svg',
-  resumeHref: '',
   contactHref: '',
-  socialLinks: []
+  quickLinks: Object.freeze({
+    linkedin: 'https://www.linkedin.com/in/your-linkedin-handle',
+    github: 'https://github.com/your-github-username',
+    cv: 'https://example.com/your-cv.pdf'
+  })
 });
 
 export const PROJECT_TABS = Object.freeze([

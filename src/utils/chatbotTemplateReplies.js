@@ -51,22 +51,36 @@ Each item already supports bilingual fields, tags, dates, images, and public/pri
     replies: {
       id: `${DEMO_NOTICE.id}
 
-Untuk mengganti tombol kontak project private, edit \`PROFILE.contactHref\` di \`src/data/site.js\`.
+Untuk mengganti tombol LinkedIn, GitHub, dan CV di sidebar, edit \`PROFILE.quickLinks\` di \`src/data/site.js\`.
+
+Isi yang tersedia:
+- \`quickLinks.linkedin\`
+- \`quickLinks.github\`
+- \`quickLinks.cv\`
+
+Untuk mengganti tombol kontak project private, edit \`PROFILE.contactHref\` di file yang sama.
 
 Contoh:
 - \`mailto:hello@domainanda.com\`
 - \`https://linkedin.com/in/username-anda\`
 
-Setelah itu modal project private akan langsung memakai link tersebut.`,
+Setelah itu sidebar dan modal project private akan langsung memakai link tersebut.`,
       en: `${DEMO_NOTICE.en}
 
-To change the private-project contact button, edit \`PROFILE.contactHref\` in \`src/data/site.js\`.
+To change the LinkedIn, GitHub, and CV buttons in the sidebar, edit \`PROFILE.quickLinks\` in \`src/data/site.js\`.
+
+Available entries:
+- \`quickLinks.linkedin\`
+- \`quickLinks.github\`
+- \`quickLinks.cv\`
+
+To change the private-project contact button, edit \`PROFILE.contactHref\` in the same file.
 
 Examples:
 - \`mailto:hello@yourdomain.com\`
 - \`https://linkedin.com/in/your-profile\`
 
-The private-project modal will automatically use that link.`
+The sidebar and private-project modal will automatically use those links.`
     }
   },
   {

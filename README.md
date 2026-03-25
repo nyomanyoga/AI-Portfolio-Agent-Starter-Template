@@ -46,8 +46,7 @@ public/
 Template ini sengaja memakai:
 
 - nama profil: placeholder
-- social links: kosong
-- resume link: kosong
+- quick links sidebar: placeholder GitHub, LinkedIn, dan CV
 - contact link: kosong
 - data project: dummy
 - chatbot: aktif secara default dalam demo mode
@@ -68,12 +67,15 @@ Bagian yang biasanya ingin Anda ganti:
 - `SITE_TEMPLATE.footerLabel`
 - `PROFILE.name`
 - `PROFILE.avatar`
-- `PROFILE.resumeHref`
+- `PROFILE.quickLinks.linkedin`
+- `PROFILE.quickLinks.github`
+- `PROFILE.quickLinks.cv`
 - `PROFILE.contactHref`
-- `PROFILE.socialLinks`
 - `CHATBOT_TEMPLATE.name`
 - `CHATBOT_TEMPLATE.icon`
 - `CHATBOT_TEMPLATE.enabled`
+
+Tombol di sidebar tepat di bawah pemilihan bahasa akan otomatis memakai nilai dari `PROFILE.quickLinks`.
 
 Jika Anda ingin menampilkan tombol kontak pada modal project private, isi:
 
@@ -82,6 +84,11 @@ Jika Anda ingin menampilkan tombol kontak pada modal project private, isi:
 Contoh:
 
 ```js
+quickLinks: {
+  linkedin: 'https://www.linkedin.com/in/your-linkedin-handle',
+  github: 'https://github.com/your-github-username',
+  cv: 'https://example.com/your-cv.pdf'
+},
 contactHref: 'mailto:hello@yourdomain.com'
 ```
 
@@ -156,7 +163,7 @@ Silakan replace dengan aset Anda sendiri.
 
 ## Konfigurasi .env
 
-Template ini memakai file `.env` di root project, dan file itu sengaja dibiarkan berupa placeholder kosong agar aman saat repo dipublikasikan.
+Template ini menyediakan file `.env` di root project sebagai placeholder aman yang sudah berisi komentar pemakaian.
 
 ### Isi `.env` harus berasal dari aplikasi Flownym Anda
 
@@ -257,7 +264,7 @@ Pastikan Anda sudah mengganti:
 
 - nama profil
 - avatar
-- social links
+- quick links sidebar
 - contact link
 - semua dummy project
 - semua company labels
